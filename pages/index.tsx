@@ -12,7 +12,6 @@ export const getStaticProps = async () => {
 };
 
 const Home: NextPage<{ paths: string[] }> = ({ paths }) => {
-  console.log(paths);
   return (
     <div>
       <h1 className='text-center font-bold leading-normal'>
@@ -25,7 +24,7 @@ const Home: NextPage<{ paths: string[] }> = ({ paths }) => {
         <hr />
         <div className='mt-4 space-y-2'>
           {paths.map((path) => (
-            <div key={path} className='text-lg'>
+            <div key={path} className='text-lg hover:text-indigo-600'>
               <span>- </span>
               <Link href={`/${path}`}>
                 <a className='underline'>{path}</a>
