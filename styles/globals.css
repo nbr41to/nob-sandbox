@@ -11,3 +11,12 @@ h2 {
 h3 {
   @apply text-xl;
 }
+
+@layer components {
+  .btn {
+    @apply bg-blue-500;
+    @apply text-white;
+    @apply p-2;
+    @apply rounded;
+  }
+}

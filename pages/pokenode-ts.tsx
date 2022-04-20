@@ -1,20 +1,23 @@
-import type { NextPage } from 'next';
-import { useEffect, useState } from 'react';
-import { PokemonClient } from 'pokenode-ts';
+import type { NextPage } from "next";
+import { useEffect, useState } from "react";
+import { PokemonClient } from "pokenode-ts";
 const api = new PokemonClient();
 
 const PokenodeTs: NextPage = () => {
-  const [pokemon, setPokemon] = useState<any>(null);
-  useEffect(() => {
-    void (async () => {
-      const data = await api.getPokemonByName('luxray');
-      console.log(data);
-      setPokemon(data);
-    })();
-  }, []);
+	const [pokemon, setPokemon] = useState<any>(null);
+	useEffect(
+		() => {
+			void (async () => {
+				const data = await api.getPokemonByName("luxray");
+				console.log(data);
+				setPokemon(data);
+			})();
+		},
+		[],
+	);
 
-  return (
-    <div>
+	return (
+		<div>
       <h1>Pokenode-ts</h1>
       {/* <div>{pokemon?.forms[0].name}</div>
       <div>{pokemon?.forms[0].url}</div> */}
@@ -31,7 +34,7 @@ const PokenodeTs: NextPage = () => {
       <img src={pokemon?.sprites.back_shiny} alt='' />
       <img src={pokemon?.sprites.back_shiny_female} alt='' />
     </div>
-  );
+	);
 };
 
 export default PokenodeTs;
