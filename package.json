@@ -12,6 +12,7 @@
   "dependencies": {
     "@datadog/browser-logs": "^4.7.1",
     "@lexical/react": "^0.2.3",
+    "@metamask/onboarding": "^1.0.1",
     "ethers": "^5.6.4",
     "lexical": "^0.2.3",
     "next": "12.1.5",

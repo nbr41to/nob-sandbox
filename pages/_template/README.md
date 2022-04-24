@@ -1,5 +1,3 @@
-<!-- Title -->
-
 #
 
 <!-- Official Site -->

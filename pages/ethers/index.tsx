@@ -1,28 +1,46 @@
 import type { NextPage } from 'next';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ethers } from 'ethers';
+import MetaMaskOnboarding from '@metamask/onboarding';
 
 type Props = {};
 
 const Ethers: NextPage<Props> = () => {
+  // const metaMaskOnboarding = useRef<MetaMaskOnboarding>();
   const [state, setState] = useState();
-  useEffect(() => {}, []);
+
+  /* これがなんのためにあるのかわからん */
+  const onboarding = useRef<MetaMaskOnboarding>();
+  useEffect(() => {
+    if (!onboarding.current) {
+      onboarding.current = new MetaMaskOnboarding();
+    }
+  }, []);
 
   const connectWallet = async () => {
-    // A Web3Provider wraps a standard Web3 provider, which is
-    // what MetaMask injects as window.ethereum into each page
-    if (typeof window.ethereum !== 'undefined') {
+    /* metamaskのinstallフラグ1 */
+    if (typeof (window as any).ethereum !== 'undefined') {
       console.log('MetaMask is installed!');
     }
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    /* metamaskのinstallフラグ2 */
+    if (!MetaMaskOnboarding.isMetaMaskInstalled()) {
+      if (
+        !window.confirm(
+          'MetaMaskがInstallされていません。MetaMaskをInstallしますか？',
+        )
+      )
+        return;
+      window.open('https://metamask.io/download', '_blank');
+      return;
+    }
 
-    // MetaMask requires requesting permission to connect users accounts
+    /* 接続 */
+    const provider = new ethers.providers.Web3Provider(
+      (window as any).ethereum,
+    );
     await provider.send('eth_requestAccounts', []);
-
-    // The MetaMask plugin also allows signing transactions to
-    // send ether and pay to change state within the blockchain.
-    // For this, you need the account signer...
     const signer = provider.getSigner();
+    console.log(signer);
   };
 
   return (

@@ -1,5 +1,9 @@
 # lexical
 
+<!-- Official Site -->
+
+https://lexical.dev/
+
 ## Getting Started
 
 install

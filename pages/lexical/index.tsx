@@ -10,6 +10,17 @@ import LexicalContentEditable from '@lexical/react/LexicalContentEditable';
 import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin';
 import LexicalOnChangePlugin from '@lexical/react/LexicalOnChangePlugin';
 import { useLexicalComposerContext } from '@lexical/react/LexicalComposerContext';
+import RichTextPlugin from '@lexical/react/LexicalRichTextPlugin';
+import ContentEditable from '@lexical/react/LexicalContentEditable';
+import AutoFocusPlugin from '@lexical/react/LexicalAutoFocusPlugin';
+import { HeadingNode, QuoteNode } from '@lexical/rich-text';
+import { TableCellNode, TableNode, TableRowNode } from '@lexical/table';
+import { ListItemNode, ListNode } from '@lexical/list';
+import { CodeHighlightNode, CodeNode } from '@lexical/code';
+import { AutoLinkNode, LinkNode } from '@lexical/link';
+import LinkPlugin from '@lexical/react/LexicalLinkPlugin';
+import ListPlugin from '@lexical/react/LexicalListPlugin';
+import LexicalMarkdownShortcutPlugin from '@lexical/react/LexicalMarkdownShortcutPlugin';
 
 type Props = {};
 
@@ -52,14 +63,26 @@ const Lexical: NextPage<Props> = () => {
       <h1>lexical</h1>
       <div>
         <LexicalComposer initialConfig={initialConfig}>
-          <LexicalPlainTextPlugin
-            contentEditable={<LexicalContentEditable />}
-            placeholder={<div>Enter some text...</div>}
-          />
-          <LexicalOnChangePlugin onChange={onChange} />
-          <HistoryPlugin />
-          <LexicalListPlugin />
-          <MyCustomAutoFocusPlugin />
+          <div className='editor-container'>
+            {/* <ToolbarPlugin /> */}
+            <div className='editor-inner'>
+              <RichTextPlugin
+                contentEditable={<ContentEditable className='editor-input' />}
+                placeholder={
+                  <div className='editor-placeholder'>placeholder text</div>
+                }
+              />
+              <HistoryPlugin />
+              {/* <TreeViewPlugin /> */}
+              <AutoFocusPlugin />
+              {/* <CodeHighlightPlugin /> */}
+              <ListPlugin />
+              {/* <LinkPlugin /> */}
+              {/* <AutoLinkPlugin /> */}
+              {/* <ListMaxIndentLevelPlugin maxDepth={7} /> */}
+              <LexicalMarkdownShortcutPlugin />
+            </div>
+          </div>
         </LexicalComposer>
       </div>
     </div>
