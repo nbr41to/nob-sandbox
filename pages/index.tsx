@@ -1,15 +1,15 @@
-import type { NextPage } from 'next';
-import Link from 'next/link';
-import { createPageRoutes } from '../src/lib/createPageRoutes';
+import type { NextPage } from "next";
+import Link from "next/link";
+import { createPageRoutes } from "../src/lib/createPageRoutes";
 
 export const getStaticProps = async () => {
-  const paths = createPageRoutes();
-  return { props: { paths } };
+	const paths = createPageRoutes();
+	return { props: { paths } };
 };
 
 const Home: NextPage<{ paths: string[] }> = ({ paths }) => {
-  return (
-    <div>
+	return (
+		<div>
       <h1 className='text-center font-bold leading-normal'>
         Welcome my sandbox!!
         <br />
@@ -39,7 +39,7 @@ const Home: NextPage<{ paths: string[] }> = ({ paths }) => {
         ></iframe>
       </div>
     </div>
-  );
+	);
 };
 
 export default Home;

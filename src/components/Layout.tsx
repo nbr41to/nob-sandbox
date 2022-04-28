@@ -1,15 +1,13 @@
-import { useRouter } from 'next/router';
-import { FC, ReactNode } from 'react';
+import { useRouter } from "next/router";
+import { FC, ReactNode } from "react";
 
-type Props = {
-  children: ReactNode;
-};
+type Props = { children: ReactNode };
 
 export const Layout: FC<Props> = ({ children }) => {
-  const router = useRouter();
+	const router = useRouter();
 
-  return (
-    <div className='relative min-h-screen'>
+	return (
+		<div className='relative min-h-screen'>
       <header className='bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 py-2 text-center'>
         <p className='text-2xl font-bold text-white'>nob-sandbox</p>
       </header>
@@ -26,5 +24,5 @@ export const Layout: FC<Props> = ({ children }) => {
         <small className='text-white'>2021 © nobuyukikobayashi</small>
       </footer>
     </div>
-  );
+	);
 };

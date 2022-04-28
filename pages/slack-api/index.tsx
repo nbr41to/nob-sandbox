@@ -3,15 +3,15 @@ import { useEffect, useState } from "react";
 
 type Props = {};
 
-const Rome: NextPage<Props> = () => {
+const SlackApi: NextPage<Props> = () => {
 	const [state, setState] = useState();
 	useEffect(() => {}, []);
 
 	return (
 		<div>
-      <h1>Rome</h1>
+      <h1>Slack API</h1>
     </div>
 	);
 };
 
-export default Rome;
+export default SlackApi;
