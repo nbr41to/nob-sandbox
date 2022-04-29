@@ -15,7 +15,6 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "importsNotUsedAsValues": "error",
     "checkJs": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -29,5 +28,7 @@
     "noEmit": true
   },
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Strictest"
+  "display": "Strictest",
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/vanilla.jsx"],
+  "exclude": ["node_modules"]
 }

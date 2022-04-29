@@ -1,12 +1,12 @@
-import fs from "fs";
+import fs from 'fs';
 
-const ignoreList = ["index", "_app", "_document", "_template", "api"];
+const ignoreList = ['index', '_app', '_document', '_template', 'api'];
 
 export const createPageRoutes = () => {
-	const fileList = fs.readdirSync("./pages");
-	return fileList
-		.map((file) => {
-			return file.replace(".tsx", "");
-		})
-		.filter((file) => !ignoreList.includes(file));
+  const fileList = fs.readdirSync('./pages');
+  return fileList
+    .map((file) => {
+      return file.replace('.tsx', '').replace('.jsx', '');
+    })
+    .filter((file) => !ignoreList.includes(file));
 };
