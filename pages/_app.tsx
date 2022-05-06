@@ -15,12 +15,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
       </Head>
       <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        theme={{
-          /** Put your mantine theme override here */
-          colorScheme: 'light',
-        }}
+      // withGlobalStyles
+      // withNormalizeCSS
+      // theme={{
+      //   /** Put your mantine theme override here */
+      //   colorScheme: 'light',
+      // }}
       >
         <Layout>
           <Component {...pageProps} />
