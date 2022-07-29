@@ -22,6 +22,7 @@
     "@slack/web-api": "^6.7.1",
     "@stripe/stripe-js": "^1.29.0",
     "ace-builds": "^1.4.14",
+    "clsx": "^1.2.1",
     "cookie": "^0.5.0",
     "ethers": "^5.6.4",
     "lexical": "^0.2.3",
